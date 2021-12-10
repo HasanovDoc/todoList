@@ -1,7 +1,13 @@
+@font-face {
+    font-family: Roboto;
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Roboto;
 }
 
 body {
@@ -29,7 +35,9 @@ body {
     margin-left: 26px;
     background-color: rgba(127, 126, 146, 1);
     border: 0;
-    font-family: Ro;
+    font-family: Roboto;
+    font-size: 27px;
+    line-height: 32px;
 }
 
 .header__input:focus {
