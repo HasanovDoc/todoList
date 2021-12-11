@@ -20,6 +20,20 @@ btnAdd.addEventListener('click', () => {
     messsage.value = '';
 });
 
+todo.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (event.target.classList.contains('item__cross')) {
+        todoList.forEach((item, i) => {
+            if (event.target.parentElement.querySelector('.item__input').innerHTML ===
+                item.todo) {
+                todoList.splice(i, 1);
+                localStorage.setItem('todo', JSON.stringify(todoList));
+                disiplayTodoList();
+            }
+        });
+    }
+});
+
 function disiplayTodoList() {
     let displayMesgs = '';
     if (todoList.length === 0) todo.innerHTML = ''
