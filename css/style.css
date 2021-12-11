@@ -91,7 +91,7 @@ input:focus {
     margin-left: 13px;
 }
 
-.item__input.complete {
+.item__input.done {
     text-decoration: line-through;
 }
 
@@ -110,6 +110,11 @@ input:focus {
     margin-left: 17px;
     border: 1px solid black;
     border-radius: 25%;
+    cursor: pointer;
+}
+
+.checkbox.check-true {
+    background: url('../img/check.svg');
 }
 
 .item__cross {

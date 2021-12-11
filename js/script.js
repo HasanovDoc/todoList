@@ -32,6 +32,27 @@ todo.addEventListener('click', function(event) {
             }
         });
     }
+
+    if (event.target.classList.contains('checkbox')) {
+        todoList.forEach((item, i) => {
+            if (event.target.parentElement.querySelector('.item__input').innerHTML ===
+                item.todo) {
+                item.checked = !item.checked;
+                localStorage.setItem('todo', JSON.stringify(todoList));
+                disiplayTodoList();
+            }
+        })
+    }
+    location.reload();
+});
+
+let todoItem = document.querySelectorAll('.item__input'),
+    todoCheckbox = document.querySelectorAll('.checkbox');
+todoList.forEach((item, i) => {
+    if (item.checked === true) {
+        todoItem[i].classList.add('done');
+        todoCheckbox[i].classList.add('check-true');
+    }
 });
 
 function disiplayTodoList() {
@@ -39,7 +60,7 @@ function disiplayTodoList() {
     if (todoList.length === 0) todo.innerHTML = ''
     todoList.forEach(function(item, i) {
         displayMesgs += `
-        <li class="list__item" item-index="${i}">
+        <li class="list__item">
                     <label for="itemCheck" class="item__input">${item.todo}</label>
                     <input type="checkbox" class="item__check" id="itemCheck"><span class="checkbox"></span>
                     <a href="#" class="item__cross">
