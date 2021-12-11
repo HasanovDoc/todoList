@@ -9,7 +9,21 @@ if (localStorage.getItem('todo')) {
     disiplayTodoList();
 }
 
-btnAdd.addEventListener('click', () => {
+messsage.addEventListener('keydown', (event) => {
+    if (event.keyCode === 13) {
+        let newTodo = {
+            todo: messsage.value,
+            checked: false,
+        }
+        todoList.push(newTodo);
+        disiplayTodoList();
+        localStorage.setItem('todo', JSON.stringify(todoList));
+        messsage.value = '';
+        location.reload();
+    }
+});
+
+btnAdd.addEventListener('click', function addMessage() {
     let newTodo = {
         todo: messsage.value,
         checked: false,
@@ -18,6 +32,7 @@ btnAdd.addEventListener('click', () => {
     disiplayTodoList();
     localStorage.setItem('todo', JSON.stringify(todoList));
     messsage.value = '';
+    location.reload();
 });
 
 todo.addEventListener('click', function(event) {
